@@ -26,3 +26,5 @@ yarn-error.log*
 *.iml
 *.iws
 *.ipr
+*.xml
+
