@@ -1,0 +1,116 @@
+$primaryColor: #b9ffcb;
+$secondaryColor: #81ffa6;
+body {
+  background: linear-gradient(312deg, rgba(0,121,197,1) 18%, rgba(121,203,255,1) 53%, rgba(121,203,255,1) 77%, rgba(0,121,197,1) 100%)  no-repeat fixed;;
+
+  position: relative;
+  margin: auto;
+  padding: 10px;
+  max-width: 1200px;
+}
+li {
+  list-style-type: none;
+}
+
+.navBar{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 2vh;
+  border-radius: 10px;
+  box-shadow:(0px 4px 4px rgba(0, 0, 0, 0.4));
+  background-color: white;
+
+
+  &__btn {
+    position: relative;
+
+    &--link {
+      color: $primaryColor;
+
+      &--active::before {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80%;
+        margin-left: 10%;
+        height: 1px;
+        background-color: $primaryColor;
+        border-radius: 25px;
+      }
+
+      &:hover {
+        color: darken($primaryColor, 20%);
+      }
+    }
+
+    &--icon {
+      background-color: $secondaryColor;
+      border-radius: 25%;
+      padding: 8px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  & p {
+    display: none;
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+  margin: 1vh;
+
+
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+@media screen and (min-width:750px) {
+  .navBar {
+
+    top: 0;
+  }
+  .nav {
+    gap: 2vh;
+    padding: 2vh;
+    margin-bottom: 2vh;
+    flex-wrap: wrap;
+
+    &__btn {
+      border: $secondaryColor 2px solid;
+      border-radius: 18px;
+      box-shadow: 0px 4px 4px #34b3ea;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background-color: $secondaryColor;
+        box-shadow: 0px 0 0 #34b3ea;
+      }
+
+    }
+
+    & p {
+      display: initial;
+      text-align: center;
+      padding: 0 10px;
+      margin: 0;
+    }
+  }
+}
